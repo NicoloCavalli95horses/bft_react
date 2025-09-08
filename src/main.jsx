@@ -4,15 +4,14 @@ import './index.css'
 import App from './App.jsx'
 
 const gH = window.__REACT_DEVTOOLS_GLOBAL_HOOK__;
-const isReact = typeof gH === "object";
-if (!isReact) {}
-
-for (let [key, value] of Object.entries(gH)) {
-  gH[key] = (typeof value === "function")
-    ? () => {}
-    : null;
+const isReact = gH && typeof gH === "object";
+if (isReact) {
+  for (let [key, value] of Object.entries(gH)) {
+    gH[key] = (typeof value === "function")
+      ? () => {}
+      : null;
+  }
 }
-
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
