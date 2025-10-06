@@ -7,16 +7,6 @@ import App from './App';
 if (process.env.NODE_ENV === 'production') {
   disableReactDevTools();
 }
-// const gH = window.__REACT_DEVTOOLS_GLOBAL_HOOK__;
-// const isReact = typeof gH === "object";
-// if (!isReact) {}
-
-// for (let [key, value] of Object.entries(gH)) {
-//   gH[key] = (typeof value === "function")
-//     ? () => {}
-//     : null;
-// }
-
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
